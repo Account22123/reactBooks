@@ -1,0 +1,3 @@
+myfunction ={
+    console.log(3)
+}
