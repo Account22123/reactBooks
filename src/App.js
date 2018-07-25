@@ -6,16 +6,18 @@ import {Route} from 'react-router-dom'
 
 class BooksApp extends React.Component {
   state = {
-    move: '',
-    currentlyReading: '',
-    wantToRead: '',
-    read: '',
-    none: ''
+    books: [
+      { "currentlyReading": ''},
+      { "wantToRead": ''},
+      { "read": ''},
+      ]
   }
 
-handleChange = (event) => {
-  this.setState({move: event.target.value})
-}
+
+
+
+
+
 
 handleChange = (event) => {
   this.setState({currentlyReading: event.target.value})
@@ -23,15 +25,14 @@ handleChange = (event) => {
 
 handleChange = (event) => {
   this.setState({wantToRead: event.target.value})
+  console.log('wantToRead');
 }
 
 handleChange = (event) => {
   this.setState({read: event.target.value})
 }
 
-handleChange = (event) => {
-  this.setState({none: event.target.value})
-}
+
 
 
 
@@ -78,13 +79,13 @@ handleChange = (event) => {
                         <div className="book">
                           <div className="book-top">
                             <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: 'url("http://books.google.com/books/content?id=PGR2AwAAQBAJ&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE73-GnPVEyb7MOCxDzOYF1PTQRuf6nCss9LMNOSWBpxBrz8Pm2_mFtWMMg_Y1dx92HT7cUoQBeSWjs3oEztBVhUeDFQX6-tWlWz1-feexS0mlJPjotcwFqAg6hBYDXuK_bkyHD-y&source=gbs_api")' }}></div>
-                            <button onClick={this.handleChange} className="book-shelf-changer">
+                            <button className="book-shelf-changer">
                               <select>
                                 <option value={this.state.move} disabled>Move to...</option>
-                                <option onClick={this.handleclick} value={this.state.currentlyReading}>Currently Reading</option>
+                                <option value={this.state.currentlyReading} onChange={this.handleChange}>Currently Reading</option>
                                 <option value={this.state.wantToRead} onChange={this.handleChange}>Want to Read</option>
-                                <option value={this.state.read}>Read</option>
-                                <option value={this.state.none}>None</option>
+                                <option value={this.state.read} onChange={this.handleChange}>Read</option>
+                                <option value={this.state.none} >None</option>
                               </select>
                             </button>
                           </div>
@@ -96,7 +97,7 @@ handleChange = (event) => {
                         <div className="book">
                           <div className="book-top">
                             <div className="book-cover" style={{ width: 128, height: 188, backgroundImage: 'url("http://books.google.com/books/content?id=yDtCuFHXbAYC&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE72RRiTR6U5OUg3IY_LpHTL2NztVWAuZYNFE8dUuC0VlYabeyegLzpAnDPeWxE6RHi0C2ehrR9Gv20LH2dtjpbcUcs8YnH5VCCAH0Y2ICaKOTvrZTCObQbsfp4UbDqQyGISCZfGN&source=gbs_api")' }}></div>
-                            <button onClick={this.handleChange} className="book-shelf-changer">
+                            <button className="book-shelf-changer">
                               <select>
                                 <option value={this.state.move} disabled>Move to...</option>
                                 <option value={this.state.currentlyReading}>Currently Reading</option>
